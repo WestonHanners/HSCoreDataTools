@@ -3,11 +3,11 @@ HSCoreDataTools
 
 A set of objects to make Core Data EASY!!!
 
-= HSRootCoreDataStack =
+## HSRootCoreDataStack
 
 This is a class that has a single exposed property `-rootContext`. this method will return a NSManagedObjectContext that has been completely initialized and ready to use.
 
-= NSManagedObjectContext+EasyTools.h/m =
+## NSManagedObjectContext+EasyTools.h/m
 
 This category has a couple of methods to make things simpler
 
@@ -16,5 +16,4 @@ This category has a couple of methods to make things simpler
 `-rootContext` -- returns the top most managedObjectContext.
 
 `contextName` -- is a property that allows you to assign strings to a context, this is very helpful for debugging in multiple contexts.
-
 
