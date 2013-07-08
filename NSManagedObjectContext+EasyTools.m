@@ -27,13 +27,13 @@ static char contextNameKey;
 
     NSManagedObjectContext *currentContext = self;
 
-    while (currentContext.parentContext) {
+    while (currentContext) {
         
         if (currentContext.hasChanges) {
             
             [currentContext performBlock:^{
                 [currentContext save:nil];
-                NSLog(@"Saved %@", currentContext);
+                NSLog(@"Saved %@", [currentContext contextName]);
             }];
         }
         currentContext = currentContext.parentContext;
