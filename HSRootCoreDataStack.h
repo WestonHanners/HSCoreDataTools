@@ -10,6 +10,9 @@
 
 @interface HSRootCoreDataStack : NSObject
 
-@property (strong, nonatomic) NSManagedObjectContext *rootContext;
+@property (strong, nonatomic) NSManagedObjectContext        *rootContext;
+@property (strong, nonatomic) NSPersistentStoreCoordinator  *persistentStoreCoordinator;
+@property (strong, nonatomic) NSPersistentStore             *persistentStore;
+@property (strong, nonatomic) NSManagedObjectModel          *managedObjectModel;
 
 @end

@@ -8,14 +8,6 @@
 
 #import "HSRootCoreDataStack.h"
 
-@interface HSRootCoreDataStack ()
-
-@property (strong, nonatomic) NSPersistentStoreCoordinator  *persistentStoreCoordinator;
-@property (strong, nonatomic) NSPersistentStore             *persistentStore;
-@property (strong, nonatomic) NSManagedObjectModel          *managedObjectModel;
-
-@end
-
 @implementation HSRootCoreDataStack
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
