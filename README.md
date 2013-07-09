@@ -23,5 +23,5 @@ This category has a couple of methods to make things simpler
 
 This category adds a method to help clear out some fetch request boilerplate
 
-`+(NSArray *)fetchWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortKey ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context` -- takes a predicate/sortKey/context and returns an NSArray of all objects that match. This method potentally knocks out 4 lines of code per fetch.
+`+(NSArray *)fetchWithPredicate...` -- takes a predicate/sortKey/context and returns an NSArray of all objects that match. This method potentally knocks out 4 lines of code per fetch.
 
