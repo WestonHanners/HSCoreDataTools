@@ -5,7 +5,8 @@ A set of objects to make Core Data EASY!!!
 
 This project doesn't aim to manage you contexts for you, you will still have to keep your contexts around. If you want something a bit more automatic, check out [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) by Saul Mora (Magical Panda)
 
-###Features
+
+##Features
 
 - Instant Core Data Stack - No longer do you have to pollute your AppDelegate with boilerplate. One class manages it all
 
@@ -15,11 +16,13 @@ This project doesn't aim to manage you contexts for you, you will still have to 
 
 - Context Naming - This really helps when debugging, all contexts now have a contextName property for you to set/read.
 
-#### HSRootCoreDataStack.h/m
+
+### HSRootCoreDataStack.h/m
 
 This is a class that has a single exposed property `-(NSManagedObjectContext *)rootContext`. This method will return a NSManagedObjectContext that has been completely initialized and ready to use.
 
-#### NSManagedObjectContext+EasyTools.h/m
+
+### NSManagedObjectContext+EasyTools.h/m
 
 This category has a couple of methods to make things simpler
 
@@ -29,7 +32,8 @@ This category has a couple of methods to make things simpler
 
 `-(NSString *)contextName` -- is a property that allows you to assign strings to a context, this is very helpful for debugging in multiple contexts.
 
-#### NSManagedObject+EasyTools.h/m
+
+### NSManagedObject+EasyTools.h/m
 
 This category adds a method to help clear out some fetch request boilerplate
 
