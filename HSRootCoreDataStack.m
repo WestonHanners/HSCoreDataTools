@@ -43,7 +43,7 @@
     if (_managedObjectModel)
         return _managedObjectModel;
 
-    NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:@[[NSBundle mainBundle]]];
+    NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:nil];
 
     return mom;
 
