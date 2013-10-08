@@ -23,11 +23,13 @@
 
     NSURL *storeURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.sqlite", [self documentsDirectory], appName]];
     
-
+	NSDictionary *optionsDict = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+			                 	        NSInferMappingModelAutomaticallyOption: @YES};
+	
     self.persistentStore = [poc addPersistentStoreWithType:NSSQLiteStoreType
                                              configuration:nil
                                                        URL:storeURL
-                                                   options:nil
+                                                   options:optionsDict
                                                      error:&error];
 
     if (error)
