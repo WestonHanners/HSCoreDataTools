@@ -54,7 +54,7 @@
     if (_rootContext)
         return _rootContext;
 
-    NSManagedObjectContext *rc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    NSManagedObjectContext *rc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueCurrencyType];
 
     if (!rc)
         NSLog(@"Unable to create Root Context");
