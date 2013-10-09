@@ -51,4 +51,9 @@ static char contextNameKey;
     return currentContext;
 }
 
+- (NSManagedObjectModel *)managedObjectModel {
+
+    return self.persistentStoreCoordinator.managedObjectModel;
+}
+
 @end
