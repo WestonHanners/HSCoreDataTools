@@ -13,6 +13,7 @@
 - (void)saveToRootContext;
 
 - (NSManagedObjectContext *)rootContext;
+- (NSManagedObjectModel *)managedObjectModel;
 
 @property (strong, nonatomic) NSString *contextName;
 
