@@ -17,7 +17,7 @@
 
     NSPersistentStoreCoordinator *poc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
 
-    NSError *error;
+    NSError *error = nil;
 
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
 
