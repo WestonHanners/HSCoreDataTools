@@ -1,4 +1,4 @@
-HSCoreDataTools
+Easy Core Data Tools
 ===============
 
 A set of objects to make Core Data EASY!!!
