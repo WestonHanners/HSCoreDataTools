@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Hanners Software. All rights reserved.
 //
 
-#import "NSManagedObjectContext+EasyTools.h""
+#import "NSManagedObjectContext+EasyTools.h"
 #import <objc/runtime.h>
 
 static char contextNameKey;
