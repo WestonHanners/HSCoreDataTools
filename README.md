@@ -3,8 +3,9 @@ Easy Core Data Tools
 
 A set of objects to make Core Data EASY!!!
 
-This project doesn't aim to manage you contexts for you, you will still have to keep your contexts around. If you want something a bit more automatic, check out [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) by Saul Mora (Magical Panda)
+This project doesn't aim to manage your contexts for you, you will still have to keep your contexts around. If you want something a bit more automatic, check out [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) by Saul Mora (Magical Panda).
 
+The main focus is super-fast, lightweight, almost snippet-like CoreData stack implementation.
 
 ##Features
 
@@ -17,12 +18,14 @@ This project doesn't aim to manage you contexts for you, you will still have to 
 - Context Naming - This really helps when debugging, all contexts now have a contextName property for you to set/read.
 
 
-### HSRootCoreDataStack.h/m
+### HSRootCoreDataStack
 
 This is a class that has a single exposed property `-(NSManagedObjectContext *)rootContext`. This method will return a NSManagedObjectContext that has been completely initialized and ready to use.
 
+UPDATE: I also exposed the PersistentStoreCoordinator, PersistentStore, and ManagedObjectModel. There are legitimate reasons for needing to access these, and I wanted to make it easy.
 
-### NSManagedObjectContext+EasyTools.h/m
+
+### NSManagedObjectContext+EasyTools
 
 This category has a couple of methods to make things simpler
 
@@ -33,7 +36,7 @@ This category has a couple of methods to make things simpler
 `-(NSString *)contextName` -- is a property that allows you to assign strings to a context, this is very helpful for debugging in multiple contexts.
 
 
-### NSManagedObject+EasyTools.h/m
+### NSManagedObject+EasyTools
 
 This category adds a method to help clear out some fetch request boilerplate
 
