@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Hanners Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import CoreData;
 
 @interface HSRootCoreDataStack : NSObject
 
