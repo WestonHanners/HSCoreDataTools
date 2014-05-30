@@ -12,8 +12,9 @@
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 
-    if (_persistentStoreCoordinator)
+    if (_persistentStoreCoordinator) {
         return _persistentStoreCoordinator;
+    }
 
     NSPersistentStoreCoordinator *poc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
 
@@ -32,16 +33,18 @@
                                                    options:optionsDict
                                                      error:&error];
 
-    if (error)
+    if (error) {
         NSLog(@"%@", error);
+    }
 
     return poc;
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
 
-    if (_managedObjectModel)
+    if (_managedObjectModel) {
         return _managedObjectModel;
+    }
 
     NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:nil];
 
@@ -51,13 +54,15 @@
 
 - (NSManagedObjectContext *)rootContext {
 
-    if (_rootContext)
+    if (_rootContext) {
         return _rootContext;
+    }
 
     NSManagedObjectContext *rc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
 
-    if (!rc)
+    if (!rc) {
         NSLog(@"Unable to create Root Context");
+    }
 
     [rc setPersistentStoreCoordinator:self.persistentStoreCoordinator];
 
