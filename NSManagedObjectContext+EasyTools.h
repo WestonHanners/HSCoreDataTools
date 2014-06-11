@@ -12,6 +12,8 @@
 
 - (void)saveToRootContext;
 
++ (NSManagedObjectContext *)appRootContext;
+
 - (NSManagedObjectContext *)rootContext;
 - (NSManagedObjectModel *)managedObjectModel;
 

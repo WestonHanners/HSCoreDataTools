@@ -40,6 +40,20 @@ static char contextNameKey;
     }    
 }
 
++ (NSManagedObjectContext *)appRootContext {
+    
+        // In order to use this feature, you must attach a root context to your app delegate (publicly) as rootContext.
+    NSManagedObjectContext *appRootContext = nil;
+    
+    id<UIApplicationDelegate> appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([appDelegate respondsToSelector:@selector(rootContext)]) {
+        appRootContext = [appDelegate performSelector:@selector(rootContext) withObject:nil];
+    }
+    
+    return appRootContext;
+}
+
 - (NSManagedObjectContext *)rootContext {
 
     NSManagedObjectContext *currentContext = self;

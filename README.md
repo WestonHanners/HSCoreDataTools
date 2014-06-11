@@ -37,6 +37,7 @@ This category has a couple of methods to make things simpler
 
 `-(NSString *)contextName` -- is a property that allows you to assign strings to a context, this is very helpful for debugging in multiple contexts.
 
+`+(NSManagedObjectContext *)appRootContext` -- allows you to access appDelegate.rootContext from any part of your app.
 
 ### NSManagedObject+EasyTools
 
