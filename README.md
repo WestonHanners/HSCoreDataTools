@@ -17,7 +17,7 @@ The main focus is super-fast, lightweight, almost snippet-like CoreData stack im
 
 - Save to RootContex - Not sure how deep you are in your context tree, this method will save to the root for you.
 
-- Context Naming - This really helps when debugging, all contexts now have a contextName property for you to set/read.
+- Context Naming - This really helps when debugging, all contexts now have a contextName property for you to set/read. (This will be deprecated once iOS8 is released.)
 
 
 ### HSRootCoreDataStack
