@@ -11,6 +11,10 @@
 @implementation NSManagedObject (EasyTools)
 
 + (NSArray *)fetchWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortKey ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context {
+    return [NSManagedObject fetchWithPredicate:predicate sortedBy:sortKey ascending:ascending inContext:context error:nil];
+}
+
++ (NSArray *)fetchWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortKey ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context error:(NSError **)error {
 
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:sortKey ascending:ascending];
 
