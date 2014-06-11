@@ -12,4 +12,8 @@
 
 + (NSArray *)fetchWithPredicate:(NSPredicate *)predicate sortedBy:(NSString *)sortKey ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context;
 
++ (NSArray *)fetchAllInContext:(NSManagedObjectContext *)context;
+
++ (NSArray *)fetchAllInContext:(NSManagedObjectContext *)context error:(NSError **)error;
+
 @end

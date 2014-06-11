@@ -19,8 +19,21 @@
     [fetchRequest setSortDescriptors:@[descriptor]];
     [fetchRequest setPredicate:predicate];
 
-    return [context executeFetchRequest:fetchRequest error:nil];
+    return [context executeFetchRequest:fetchRequest error:error];
 
+}
+
++ (NSArray *)fetchAllInContext:(NSManagedObjectContext *)context {
+    return [self fetchAllInContext:context error:nil];
+}
+
++ (NSArray *)fetchAllInContext:(NSManagedObjectContext *)context error:(NSError **)error {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass(self)];
+    
+    [fetchRequest setPredicate:nil];
+    
+    return [context executeFetchRequest:fetchRequest error:error];
 }
 
 @end
