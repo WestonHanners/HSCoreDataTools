@@ -20,7 +20,6 @@ static char contextNameKey;
 
 - (NSString *)contextName {
     return objc_getAssociatedObject(self, &contextNameKey);
-
 }
 
 - (void)saveToRootContext {
