@@ -21,6 +21,8 @@
     NSError *error = nil;
 
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    NSString                        *storeType = NSSQLiteStoreType;
+    NSURL                           *storeURL = [self storeURL];
 
     NSURL *storeURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.sqlite", [self documentsDirectory], appName]];
     
@@ -68,6 +70,11 @@
 
     return rc;
 
+- (NSURL *)storeURL {
+    NSString                        *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:CFBundleName];
+    NSURL                           *storeURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.sqlite", [self documentsDirectory], appName]];
+    
+    return storeURL;
 }
 
 - (NSString *)documentsDirectory {
