@@ -22,6 +22,8 @@ The main focus is super-fast, lightweight, almost snippet-like CoreData stack im
 
 This is a class that has a single exposed property `-(NSManagedObjectContext *)rootContext`. This method will return a NSManagedObjectContext that has been completely initialized and ready to use.
 
+You can also call `-(NSManagedObjectContext *)unitTestingContext`. This method will return an in-memory core data store.
+
 UPDATE: I also exposed the PersistentStoreCoordinator, PersistentStore, and ManagedObjectModel. There are legitimate reasons for needing to access these, and I wanted to make it easy.
 
 

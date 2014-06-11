@@ -8,7 +8,19 @@
 
 #import "HSRootCoreDataStack.h"
 
-@implementation HSRootCoreDataStack
+NSString *CFBundleName = @"CFBundleName";
+
+@implementation HSRootCoreDataStack {
+    bool usesMemoryContext;
+}
+
+- (instancetype)init {
+    
+    if ((self = [super init])) {
+        usesMemoryContext = NO;
+    }
+    return self;
+}
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 
@@ -16,20 +28,21 @@
         return _persistentStoreCoordinator;
     }
 
-    NSPersistentStoreCoordinator *poc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-
-    NSError *error = nil;
-
-    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    NSPersistentStoreCoordinator    *poc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSError                         *error = nil;
     NSString                        *storeType = NSSQLiteStoreType;
     NSURL                           *storeURL = [self storeURL];
-
-    NSURL *storeURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.sqlite", [self documentsDirectory], appName]];
     
-	NSDictionary *optionsDict = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
-			                 	        NSInferMappingModelAutomaticallyOption: @YES};
-	
-    self.persistentStore = [poc addPersistentStoreWithType:NSSQLiteStoreType
+	NSDictionary                    *optionsDict = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+                                                     NSInferMappingModelAutomaticallyOption: @YES};
+
+    if (usesMemoryContext) {
+        storeType = NSInMemoryStoreType;
+        storeURL = nil;
+        
+    }
+    
+    self.persistentStore = [poc addPersistentStoreWithType:storeType
                                              configuration:nil
                                                        URL:storeURL
                                                    options:optionsDict
@@ -55,6 +68,10 @@
 }
 
 - (NSManagedObjectContext *)rootContext {
+    
+    if (usesMemoryContext) {
+        NSLog(@"Using In-Memory Context");
+    }
 
     if (_rootContext) {
         return _rootContext;
@@ -69,6 +86,46 @@
     [rc setPersistentStoreCoordinator:self.persistentStoreCoordinator];
 
     return rc;
+}
+
+- (NSManagedObjectContext *)unitTestContext {
+    
+        // Set flag to generate context in memory.
+    usesMemoryContext = YES;
+    return [self rootContext];
+}
+
+- (void)resetStack {
+    NSError *removeError = nil;
+    
+    bool success = [_persistentStoreCoordinator removePersistentStore:_persistentStore error:&removeError];
+    
+    if (!success) {
+        NSLog(@"Error resetting NSPersistentStore: %@", removeError.localizedDescription);
+    }
+    
+    _persistentStore = nil;
+    
+    [_rootContext reset];
+    
+    if (!usesMemoryContext) {
+        
+        NSURL *storeURL = [self storeURL];
+        
+        bool exists = [[NSFileManager defaultManager] fileExistsAtPath:storeURL.path];
+        
+        if (exists) {
+            NSError *fileRemoveError = nil;
+            
+            bool success = [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&fileRemoveError];
+            
+            if (!success) {
+                NSLog(@"Error removing local store: %@", fileRemoveError.localizedDescription);
+            }
+        }
+    }
+    
+}
 
 - (NSURL *)storeURL {
     NSString                        *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:CFBundleName];
@@ -78,6 +135,7 @@
 }
 
 - (NSString *)documentsDirectory {
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     return [paths objectAtIndex:0];
 }
