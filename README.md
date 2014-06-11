@@ -10,6 +10,8 @@ The main focus is super-fast, lightweight, almost snippet-like CoreData stack im
 ##Features
 
 - Instant Core Data Stack - No longer do you have to pollute your AppDelegate with boilerplate. One class manages it all
+- 
+- Unit-Testing Stack - Preconfigured stack in-memory, sutible for using in unit tests.
 
 - Auto-Migrating data stores - Just make sure you are versioning and this stack will auto-migrate for you.
 
