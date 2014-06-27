@@ -5,7 +5,7 @@ A set of objects to make Core Data EASY!!!
 
 This project doesn't aim to manage your contexts for you, you will still have to keep your contexts around. If you want something a bit more automatic, check out [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) by Saul Mora (Magical Panda).
 
-The main focus is super-fast, lightweight, almost snippet-like CoreData stack implementation.
+The main focus is super-lightweight CoreData stack implementation.
 
 ##Features
 
