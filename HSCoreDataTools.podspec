@@ -8,14 +8,14 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "${POD_NAME}"
+  s.name             = "HSCoreDataTools"
   s.version          = "1.0.0"
-  s.summary          = "Some tools to help speed up development of CoreData backed apps ${POD_NAME}."
+  s.summary          = "Some tools to help speed up development of CoreData backed apps."
 
-  s.homepage         = "https://github.com/kronusdark/${POD_NAME}"
+  s.homepage         = "https://github.com/kronusdark/HSCoreDataTools"
   s.license          = 'MIT'
-  s.author           = { "${USER_NAME}" => "${USER_EMAIL}" }
-  s.source           = { :git => "https://github.com/kronusdark/${POD_NAME}.git", :tag => s.version.to_s }
+  s.author           = { "Weston Hanners" => "admin@hanners.us" }
+  s.source           = { :git => "https://github.com/kronusdark/HSCoreDataTools.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/kronusdark'
 
   s.platform     = :ios, '7.0'
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'CoreData'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'CoreData'
 end
