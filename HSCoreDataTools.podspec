@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "HSCoreDataTools"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Some tools to help speed up development of CoreData backed apps."
 
   s.homepage         = "https://github.com/kronusdark/HSCoreDataTools"
